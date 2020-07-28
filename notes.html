@@ -1,0 +1,154 @@
+<html>
+<head>
+<style>
+.container
+{
+   border:2px solid black;
+   margin:10px;
+   padding:10px;
+   background:skyblue;
+   height:500px;
+   width:900px;
+}
+.box
+{
+   border:2px solid black;
+   margin:10px;
+   padding:10px;
+   background:yellow;
+   height:200px;
+   width:210px;
+   
+}
+#box22
+{
+   border:2px solid black;
+   margin:10px;
+   padding:10px;
+   background:lightgreen;
+   height:200px;
+   width:210px;
+   display:none;
+   position:absolute;
+   top:25px;
+   left:25px;
+}
+#box21{
+  display:none;
+}
+.but
+{
+   font-family:cursive;
+   border:2px solid black;
+   background:white;
+   padding:4px 4px;
+   margin:4px 4px; 
+}
+.but:hover
+{
+   color:white;
+   background:black;
+}
+input
+{
+   background:yellow;
+   border:2px solid black;
+   height:30px;
+}
+</style>
+</head>
+<body>
+<center>Notes App</center>
+<div class="container" id="ab1">
+<div id="box21" class="box">
+</div>
+<div id="box22" class="box">
+</div>
+</div>
+<button class = "but" id = "b1" onclick="add();">Add Note</button>
+<button class = "but" id = "b1" onclick="de();">Remove Note</button>
+<script>
+let globalcount=0;
+let ab = 0;
+let cd;
+let pq;
+let pqa=0;
+let idarray = [0,1,2,3,4,5,6,7,8,9,10,11,12,13];
+let idpos = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+let last=2;
+let num=0;
+function add()
+{
+    num = num + 1;
+    last = last+1;
+    elem1 = document.getElementById("ab1");
+    elem2 = document.createElement("div");
+    elem2.class="box";
+    pq = num;
+    pqa = pqa+1;
+    pq = pq.toString();
+    elem2.id="box"+pq;
+    elem2.style.display = "visible";
+    elem2.style.height = "200px";
+    elem2.style.width = "210px";
+    elem2.style.padding = "15px";
+    elem2.style.border = "2px solid black";
+    elem2.style.background = "yellow";
+    elem2.style.display= "visible";
+    elem2.style.position = "absolute";
+    ab = num*50;
+    console.log(ab);
+     cd = ab.toString();
+    idpos[pq-3] = cd;
+    elem2.style.top = cd + "px";
+    elem2.style.left = cd + "px";
+    let a = document.createTextNode(" ");
+    let b = elem2.append(a);
+    elem1.appendChild(elem2);
+    let c = "<button class = 'but' "+"id = "+ " ' " + pq +" ' "+"onclick='de();'"+">Remove Note</button>";
+    elem2.innerHTML = elem2.innerHTML + "<input></input>" + "<br>" + "<br>" + "<br>" + c;
+ }
+
+function del()
+{
+    console.log("2+3");
+}
+
+function de()
+{
+     globalcount = num.toString();
+     let m;
+     let a;
+     let cd;
+     let i;
+     let j;
+     j = parseFloat(globalcount);
+     i = Math.floor(j);
+     m = i;
+     cd = "box" + globalcount; 
+     let x = document.getElementById(cd);
+     x.remove();
+     console.log(last);
+     console.log("loop");
+     last = last-1;
+     num = num-1;
+     console.log(99);        
+}
+
+function delr()
+{
+   let x = document.getElementById("box6");
+   x.style.display = "none";
+   x.style.zIndex = "-50";
+   x = document.getElementById("box7");
+   x.style.zIndex = "50";
+   x.style.top = "150"+"px";
+   x.style.left = "150"+"px";
+   x = document.getElementById("box8");
+   x.style.zIndex = "51";
+   x.style.top = "200"+"px";
+   x.style.left = "200"+"px";
+}
+</script>
+</body>
+</html>
